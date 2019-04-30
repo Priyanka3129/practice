@@ -1,0 +1,168 @@
+<html>
+<head>
+	<title>Srcum</title>
+</head>
+<body>
+	<form>
+		First Name:<input type="text" id="box1">
+		<br>
+		<br>
+		Last Name:<input type="text" id="box2">
+		<br>
+		<br>
+		Email:<input type="email" id="box3">
+		<br>
+		<br>
+		Password:<input type="password" id="box4">
+		<br>
+		<br>
+		<input type="radio" id="1" name="gender" value="male">Male
+		<input type="radio" id="2" name="gender" value="female">Female
+		<br>
+		<br>
+		Permanent Address:
+		<br>
+		Door No:<input type="text" id="box5" onchange="p()">
+		<br>
+		<br>
+		Area Name:<input type="text" id="box6" onchange="pr()" disabled>
+		<br>
+		<br>
+		Pincode:<input type="text" id="box7" maxlength="6"disabled>
+		<br>
+		
+		<input type="checkbox" id="c3" name="text" value="">Same as Permament Address
+		<br>
+		<br>
+		
+		Communication Address:
+		<br>
+		Door No:<input type="text" id="box8" onchange="a()">
+		<br>
+		<br>
+		Area Name:<input type="text" id="box9" onchange="b()" disabled>
+		<br>
+		<br>
+		Pincode:<input type="text" id="box10" maxlength="6" disabled>
+		<br>
+		<br>
+		
+		
+		<input type="checkbox" id="c1" name="text" value="" onclick="agre()">I agree upon terms and conditions
+		<br>
+		<br>
+		<input type="button" id="c2" name="submit" value="Submit" onclick="agre()" disabled>
+		
+		<br>
+		<br>
+		Phone Number:<input type="text" id="block1" maxlength="10" >
+		<br>
+		<br>
+		<input type="button" id="b1"  value="Generate OTP" onclick="ench1()"> 
+		<br>
+		<br>
+		OTP:<input type="text" id="block2" disabled>
+		<br>
+		<br>
+		<input type="button" id="b2" value="verify" onclick="ench2()">
+		<br>
+	</form>
+	<script >
+		function p()
+		{
+		 	var door=document.getElementById("box5").value;
+			if(door.length>0)
+			{
+				document.getElementById("box6").disabled=false;
+			}
+			else
+			{
+				document.getElementById("box6").disabled=true;
+			}
+   		}
+		function pr()
+		{
+			var area=document.getElementById("box6").value;
+			if(area.length>0)
+			{
+				document.getElementById("box7").disabled=false;
+			}
+			else
+			{
+				document.getElementById("box7").disabled=true;
+			}
+   		}
+		function a()
+		{
+			var door1=document.getElementById("box8").value;
+			if (door1.length>0)
+			{
+			document.getElementById("box9").disabled=false;
+			}
+			else
+			{
+			document.getElementById("box9").disabled=true;
+			}
+		}
+		function b()
+		{
+			var door2=document.getElementById("box9").value;
+			if(door2.length>0)
+			{
+				document.getElementById("box10").disabled=false;
+			}
+			else
+			{
+				document.getElementById("box10").disabled=true;
+			}
+		}	
+		function agre()
+		{
+			var agree=document.getElementsByName("text");
+			for (var i=0;i<agree.length;i++)
+			{
+			if(agree[i].checked)
+			{
+				document.getElementById("c2").disabled=false;
+			}
+			else
+			{
+			document.getElementById("c2").disabled=true;
+			}
+			}
+		}	
+		function ench1()
+		{
+			var key=document.getElementById("block1").value;
+			if(key.length==10 & isNaN(key)==false)
+			{
+				alert("An OTP will be send to"+key.substring(0,2)+"******"+key.substring(8,10));
+				alert("An OTP 1234");
+				document.getElementById("block2").disabled=false;
+			}
+	
+			else
+			{
+				document.write("else");
+				alert("enter the valid number");
+				document.getElementById("block2").disabled=true;
+			}	
+				
+		}
+		function ench2()
+		{
+			var P=document.getElementById("block2").value;
+			if(P==1234)
+			{	    
+		
+			alert("Successfully Registered")
+			}
+			else
+			{
+				alert("Wrong OTP")
+			}		
+		}
+		
+	</script>
+</body>
+</html>
